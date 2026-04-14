@@ -28,11 +28,11 @@ Similar to `/implement`, but works entirely autonomously.
 
 ## Installation
 
-The easiest way to install Tasky for **any** AI runtime (Local Agent, Cursor, Claude Code, etc.) is through the interactive CLI installer.
+The easiest way to install Tasky for **any** AI runtime (Local Agent, Cursor, Claude Code, etc.) is through the interactive CLI installer directly from GitHub.
 
-Run the following command in your terminal and select your desired AI tool:
+Run the following command in your terminal (replace `<username>` and `<repository>` with where you hosted this repository) and select your desired AI tool:
 ```bash
-npx tasky-ai@latest
+npx github:VitorPatrezze/tasky-ai
 ```
 
 This simple command will automatically copy the correct files (like `.toml`, `.cursorrules`, or `system-prompt.md`) to the appropriate place for you.
