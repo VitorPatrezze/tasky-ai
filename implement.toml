@@ -1,0 +1,51 @@
+description = "Implement a task using a simplified GSD workflow with multi-agent ideation, discussion, execution, and review"
+prompt = """
+<objective>
+Implement the given task while following a simplified, rigorous GSD workflow, guided by `CODE_REFERENCE.md`.
+</objective>
+
+<context>
+Task Description: $ARGUMENTS
+</context>
+
+<process>
+Follow these REQUIRED steps strictly in order:
+
+Step 1: Context Gathering
+- Read the user's task description from the arguments.
+- Read `CODE_REFERENCE.md` to understand the codebase patterns, rules, and constraints.
+- Make sure you understand the general idea of the task based on this context.
+
+Step 2: Ideation (Sub-agent)
+- Spin up a sub-agent to identify the best options for implementing the task. There are usually multiple valid approaches with different drawbacks.
+- The sub-agent MUST search the internet for the best implementation options, explicitly looking for the programming language's best practices, recommended design patterns, and other best approaches.
+- The sub-agent MUST only return these researched options (and their tradeoffs) to the main context window.
+
+Step 3: User Discussion & Requirements (Sub-agent)
+- Spin up another sub-agent to discuss the options and the task with the user.
+- MANDATORY: This sub-agent MUST ask for user input to choose the best option or refine the direction.
+- Clarify all requirements and make sure the task will be implemented according to the user's vision.
+- Return the final, agreed-upon Implementation Plan to the main context window.
+
+Step 4: Execution (Sub-agent)
+- Spin up another sub-agent to execute the finalized plan from Step 3 (perform the actual coding and file modifications).
+
+Step 5: Review (Sub-agent)
+- Spin up a final sub-agent to review the implementation code.
+- Check if all the requirements defined and agreed upon in Step 3 were perfectly met.
+- Identify and list any problems, errors, or missed requirements.
+
+Step 6: Summary & Testing Guide
+- The main agent will summarize the executed plan and list the problems/errors found by the review sub-agent.
+- Create a step-by-step guide for the user on how to test the new code or feature.
+- Present this summary and testing guide to the user as your final output.
+</process>
+
+<success_criteria>
+- Strict adherence to the 6 steps.
+- Clear options presented for the solution.
+- Explicit user interaction in Step 3 to confirm the plan.
+- Robust execution and dedicated self-review.
+- Clear final summary and testing instructions provided to the user.
+</success_criteria>
+"""

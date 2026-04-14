@@ -1,0 +1,23 @@
+{
+  "name": "tasky-ai",
+  "version": "1.0.0",
+  "description": "Tasky: A light-weight and powerful meta-prompting, context engineering and spec-driven development system",
+  "main": "bin/install.js",
+  "bin": {
+    "tasky": "bin/install.js",
+    "tasky-ai": "bin/install.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "keywords": [
+    "ai",
+    "agent",
+    "prompt",
+    "cursor",
+    "claude",
+    "context"
+  ]
+}
