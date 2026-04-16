@@ -35,7 +35,7 @@ Run the following command in your terminal (replace `<username>` and `<repositor
 npx github:VitorPatrezze/tasky-ai
 ```
 
-This simple command will automatically copy the correct files (like `.toml`, `.cursorrules`, or `system-prompt.md`) to the appropriate place for you.
+This simple command will automatically copy the correct files (like `.toml` or `.cursorrules`) to the appropriate place for you.
 
 ---
 
@@ -46,9 +46,9 @@ Copy the `.toml` files from this folder directly into your `.gemini/commands` fo
 - **Windows:** `C:\Users\<YourUsername>\.gemini\commands\`
 - **macOS / Linux:** `~/.gemini/commands/`
 
-#### Option B: Other AI Tools (Cursor, Claude Code, OpenRouter)
+#### Option B: Other AI Tools (Cursor, Claude Code)
 1. **Cursor (`.cursorrules`)**: Copy the `prompts/.cursorrules` file to the root of your project.
-2. **Generic (`system-prompt.md`)**: Copy the contents of `prompts/system-prompt.md` into your tool's custom instructions or system prompt.
+2. **Claude Code (`CLAUDE.md`)**: Copy the `prompts/.cursorrules` file to the root of your project and rename it to `CLAUDE.md`.
 
 ## Getting Started
 Once installed, open any coding project in your IDE and tell your agent:
