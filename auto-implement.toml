@@ -1,7 +1,7 @@
-description = "Implement a task autonomously using a simplified GSD workflow with multi-agent ideation, execution, and review"
+description = "Implement a task autonomously with ideation sub-agents and dedicated code review."
 prompt = """
 <objective>
-Implement the given task while following a simplified, rigorous GSD workflow, guided by `CODE_REFERENCE.md`. Do this autonomously without asking for user approval.
+Implement the given task autonomously while following the `tasky-auto-implement` skill, guided by `.ai/CODE_REFERENCE.md`.
 </objective>
 
 <context>
@@ -9,38 +9,19 @@ Task Description: $ARGUMENTS
 </context>
 
 <process>
-Follow these REQUIRED steps strictly in order:
-
-Step 1: Context Gathering
-- Read the user's task description from the arguments.
-- Read `CODE_REFERENCE.md` to understand the codebase patterns, rules, and constraints.
-- Make sure you understand the general idea of the task based on this context.
-
-Step 2: Ideation & Planning (Sub-agent)
-- Spin up a sub-agent to identify the best options for implementing the task. There are usually multiple valid approaches with different drawbacks.
-- The sub-agent MUST search the internet for the best implementation options, explicitly looking for the programming language's best practices, recommended design patterns, and other best approaches.
-- Select the best approach and formulate a clear Implementation Plan autonomously.
-- Return the final Implementation Plan to the main context window.
-
-Step 3: Execution (Sub-agent)
-- Spin up another sub-agent to execute the finalized plan from Step 2 (perform the actual coding and file modifications).
-
-Step 4: Review (Sub-agent)
-- Spin up a final sub-agent to review the implementation code.
-- Check if all the task requirements from Step 1 were perfectly met.
-- Identify and list any problems, errors, or missed requirements.
-
-Step 5: Summary & Testing Guide
-- The main agent will summarize the executed plan and list the problems/errors found by the review sub-agent.
-- Create a step-by-step guide for the user on how to test the new code or feature.
-- Present this summary and testing guide to the user as your final output.
+1. Activate and use the `tasky-auto-implement` skill.
+2. Follow its 5-step workflow autonomously:
+    - Step 1: Context Gathering (Reference `.ai/CODE_REFERENCE.md`).
+    - Step 2: Ideation & Planning (Sub-agent: `.ai/agents/ideation-agent.md`).
+    - Step 3: Execution (Sub-agent: `.ai/agents/execution-agent.md`).
+    - Step 4: Review (Sub-agent: `.ai/agents/review-agent.md`).
+    - Step 5: Final Summary & Testing Guide.
 </process>
 
 <success_criteria>
-- Strict adherence to the 5 steps.
-- Clear autonomous selection of the best implementation option.
-- No user interaction required for confirmation.
-- Robust execution and dedicated self-review.
+- Strict adherence to the `tasky-auto-implement` workflow.
+- Autonomous selection of the best approach without user confirmation.
+- Robust execution and dedicated self-review using severity classifications.
 - Clear final summary and testing instructions provided to the user.
 </success_criteria>
 """

@@ -1,21 +1,18 @@
-description = "Maps the codebase and creates 1 markdown file called '.ai/CODE_REFERENCE.md' with patterns, rules, and context."
+description = "Maps the codebase and creates a single project reference file."
 prompt = """
 <objective>
-Map the entire codebase to understand its patterns, business rules, requirements, and other important aspects.
-Create a SINGLE markdown file called `.ai/CODE_REFERENCE.md` (creating the `.ai` folder if it doesn't exist) that contains this information.
-This file will be the main source of direction for future tasks.
-This must be the ONLY file created by this workflow.
+Map the entire codebase using the `tasky-synthesize` skill to produce a comprehensive `.ai/CODE_REFERENCE.md` file.
 </objective>
 
 <process>
-1. Analyze the project structure, language, framework, design patterns, and conventions.
-2. Identify core business rules, features, and requirements that are implemented.
-3. Synthesize the findings into a clear, structured document.
-4. Write the results into EXACTLY ONE file: `.ai/CODE_REFERENCE.md`. Do not create any other markdown files, planning files, or state files.
+1. Activate and use the `tasky-synthesize` skill.
+2. Follow its process to discover and analyze the tech stack, architecture, conventions, and testing patterns.
+3. Produce the final `.ai/CODE_REFERENCE.md` file based on the provided template.
 </process>
 
 <success_criteria>
-- Comprehensive understanding of the codebase is documented.
-- `.ai/CODE_REFERENCE.md` is the ONLY file created.
+- `.ai/CODE_REFERENCE.md` is created in the `.ai/` directory.
+- The document is comprehensive and includes file paths for every pattern.
+- This is the ONLY file created during the process.
 </success_criteria>
 """

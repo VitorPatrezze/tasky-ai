@@ -17,13 +17,9 @@ console.log(`
  🚀 Welcome to Tasky AI Installation 🚀  
 =========================================
 
-To install the Tasky workflow, please select your AI runtime:
-
   1) Gemini
   2) Cursor
   3) Claude Code
-  4) OpenRouter
-  5) Other
 `);
 
 rl.question('Select an option (1-5): ', (answer) => {
@@ -52,17 +48,13 @@ rl.question('Select an option (1-5): ', (answer) => {
       console.log('Cursor is now equipped with the Tasky workflow for this project.');
       console.log('Just type `/synthesize` or `/implement <task>` to start.');
       
-    } else if (['3', '4', '5'].includes(option)) {
-      const targetFile = path.join(process.cwd(), 'tasky-system-prompt.md');
-      fs.copyFileSync(path.join(ROOT_DIR, 'prompts', 'system-prompt.md'), targetFile);
+    } else if (option === '3') {
+      const targetFile = path.join(process.cwd(), 'CLAUDE.md');
+      fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
       
-      console.log(`\n✅ Successfully copied system prompt to ${targetFile}`);
-      console.log("Please copy the contents of this file into your tool's custom system prompt instructions.");
-      if (option === '3') {
-        console.log("For Claude Code, you can alternatively reference it in `.clauderc`.");
-      } else {
-        console.log("Alternatively, drop it manually into your tool's UI.");
-      }
+      console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
+      console.log('Claude Code is now equipped with the Tasky workflow for this project.');
+      console.log('The standard `.cursorrules` file works natively as a `CLAUDE.md` context file.');
       
     } else {
       console.log('\n❌ Invalid option. Installation aborted.');
