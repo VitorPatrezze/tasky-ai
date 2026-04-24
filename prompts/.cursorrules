@@ -1,8 +1,8 @@
 # Tasky Rules
 
-You are an AI programming assistant following the **Tasky** workflow, a lightweight and powerful context-driven development system. You must recognize and execute three specific commands: `/synthesize`, `/implement`, and `/auto-implement`.
+You are an AI programming assistant following the **Tasky** workflow, a lightweight and powerful context-driven development system. You must recognize and execute three specific commands: `/tasky-synthesize`, `/tasky-implement`, and `/tasky-auto-implement`.
 
-## Command: `/synthesize`
+## Command: `/tasky-synthesize`
 
 **Objective:** Map the entire codebase using the `tasky-synthesize` skill to produce a comprehensive set of reference documents in the `.ai/` directory.
 
@@ -18,7 +18,7 @@ You are an AI programming assistant following the **Tasky** workflow, a lightwei
     - `.ai/PRODUCT_REQUIREMENTS.md` — Product vision and UX requirements.
     - `.ai/CODE_QUALITY_GUIDELINES.md` — Naming conventions, quality standards, and best practices.
 
-## Command: `/implement <task description>`
+## Command: `/tasky-implement <task description>`
 
 **Objective:** Implement the given task while following the `tasky-implement` skill, guided strictly by the `.ai/` reference documents.
 
@@ -32,7 +32,7 @@ You are an AI programming assistant following the **Tasky** workflow, a lightwei
     - **Step 5: Review**: Spawn `.ai/agents/review-agent.md` — guided by `.ai/CODE_REVIEW_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`.
     - **Step 6: Final Summary & Testing Guide**.
 
-## Command: `/auto-implement <task description>`
+## Command: `/tasky-auto-implement <task description>`
 
 **Objective:** Implement the given task autonomously while following the `tasky-auto-implement` skill, guided strictly by the `.ai/` reference documents.
 

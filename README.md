@@ -6,7 +6,7 @@ Tasky is a streamlined multi-agent implementation framework inspired by GSD (Get
 
 Tasky operates through a simple, two-step process:
 
-### 1. `/synthesize`
+### 1. `/tasky-synthesize`
 Run this command once (or whenever major architectural changes occur) to map your entire codebase. 
 - **What it does:** It analyzes your project structure, design patterns, business logic, testing conventions, and product requirements.
 - **Output:** It creates a set of structured reference documents in the `.ai/` directory:
@@ -17,7 +17,7 @@ Run this command once (or whenever major architectural changes occur) to map you
   - **`PRODUCT_REQUIREMENTS.md`** — Product vision, UX requirements, and feature alignment principles.
   - **`CODE_QUALITY_GUIDELINES.md`** — Naming conventions, readability, maintainability, and best practices.
 
-### 2. `/implement <task description>`
+### 2. `/tasky-implement <task description>`
 Run this command whenever you want to add a new feature or fix a bug. Give it a clear task description.
 - **What it does:** It kicks off a structured, multi-agent pipeline:
   1. **Context & Ideation:** Determines multiple valid paths to solve the problem, complete with drawbacks.
@@ -26,8 +26,8 @@ Run this command whenever you want to add a new feature or fix a bug. Give it a 
   4. **Review:** A review sub-agent checks the new code against your requirements to spot any errors.
   5. **Summary:** Hands you a step-by-step guide on how to test the newly implemented code.
 
-### 3. `/auto-implement <task description>`
-Similar to `/implement`, but works entirely autonomously. 
+### 3. `/tasky-auto-implement <task description>`
+Similar to `/tasky-implement`, but works entirely autonomously. 
 - **What it does:** It skips the user discussion step. It researches the best approach, creates an implementation plan, and executes it immediately without asking for your approval. Use this when you trust the agent to make the right design choices.
 
 ---
@@ -58,10 +58,10 @@ Copy the `.toml` files from this folder directly into your `.gemini/commands` fo
 
 ## Getting Started
 Once installed, open any coding project in your IDE and tell your agent:
-> `/synthesize`
+> `/tasky-synthesize`
 
 Let the agent finish mapping. Then, challenge it with a task!
-> `/implement Add a dark mode toggle to the navigation bar`
+> `/tasky-implement Add a dark mode toggle to the navigation bar`
 
 Or, if you want it to just do the work without asking questions:
-> `/auto-implement Add a dark mode toggle to the navigation bar`
+> `/tasky-auto-implement Add a dark mode toggle to the navigation bar`
