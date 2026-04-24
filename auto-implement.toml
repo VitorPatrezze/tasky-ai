@@ -1,7 +1,7 @@
 description = "Implement a task autonomously with ideation sub-agents and dedicated code review."
 prompt = """
 <objective>
-Implement the given task autonomously while following the `tasky-auto-implement` skill, guided by `.ai/CODE_REFERENCE.md`.
+Implement the given task autonomously while following the `tasky-auto-implement` skill, guided by the project's `.ai/` reference documents.
 </objective>
 
 <context>
@@ -11,11 +11,12 @@ Task Description: $ARGUMENTS
 <process>
 1. Activate and use the `tasky-auto-implement` skill.
 2. Follow its 5-step workflow autonomously:
-    - Step 1: Context Gathering (Reference `.ai/CODE_REFERENCE.md`).
+    - Step 1: Context Gathering (Reference `.ai/CODE_REFERENCE.md`, `.ai/PROJECT_PATTERNS.md`, `.ai/CODE_QUALITY_GUIDELINES.md`, `.ai/PRODUCT_REQUIREMENTS.md`).
     - Step 2: Ideation & Planning (Sub-agent: `.ai/agents/ideation-agent.md`).
-    - Step 3: Execution (Sub-agent: `.ai/agents/execution-agent.md`).
-    - Step 4: Review (Sub-agent: `.ai/agents/review-agent.md`).
+    - Step 3: Execution (Sub-agent: `.ai/agents/execution-agent.md` — guided by `.ai/CODE_QUALITY_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`).
+    - Step 4: Review (Sub-agent: `.ai/agents/review-agent.md` — guided by `.ai/CODE_REVIEW_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`).
     - Step 5: Final Summary & Testing Guide.
+    - Step 6: (Optional) Update Reference Documents if needed.
 </process>
 
 <success_criteria>

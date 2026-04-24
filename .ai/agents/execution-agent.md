@@ -16,7 +16,10 @@ While executing, you WILL discover work not in the original plan. Apply these ru
 - NEVER use `git add .`. Stage files individually.
 
 ## Quality Standards
-- Adhere strictly to `.ai/CODE_REFERENCE.md`.
+- Adhere strictly to `.ai/CODE_QUALITY_GUIDELINES.md` for naming conventions, readability, maintainability, and all code quality standards.
+- Adhere strictly to `.ai/CODE_REFERENCE.md` for architecture and project structure.
+- Follow `.ai/TEST_PATTERNS.md` when writing or modifying tests — match test naming, structure, mocking patterns, and folder conventions.
+- Follow `.ai/PROJECT_PATTERNS.md` to ensure new code uses established design patterns rather than introducing alternatives.
 - Ensure type safety (no `any` in TypeScript).
 - Include error handling and logging as per project patterns.
 - Write clean, self-documenting code.

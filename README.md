@@ -8,8 +8,14 @@ Tasky operates through a simple, two-step process:
 
 ### 1. `/synthesize`
 Run this command once (or whenever major architectural changes occur) to map your entire codebase. 
-- **What it does:** It analyzes your project structure, design patterns, and business logic.
-- **Output:** It creates **exactly one file**, `CODE_REFERENCE.md`, at the root of your project. This file serves as the strict guiding document for future tasks, guaranteeing the agent always respects your project's established rules and patterns without cluttering your directory.
+- **What it does:** It analyzes your project structure, design patterns, business logic, testing conventions, and product requirements.
+- **Output:** It creates a set of structured reference documents in the `.ai/` directory:
+  - **`CODE_REFERENCE.md`** — Tech stack, architecture, and project structure overview.
+  - **`TEST_PATTERNS.md`** — Testing conventions, naming, folder structure, mocks, and coverage expectations.
+  - **`PROJECT_PATTERNS.md`** — Design patterns with concrete examples, file locations, and extension guidance.
+  - **`CODE_REVIEW_GUIDELINES.md`** — Review checklist used by the Review Agent to ensure code quality.
+  - **`PRODUCT_REQUIREMENTS.md`** — Product vision, UX requirements, and feature alignment principles.
+  - **`CODE_QUALITY_GUIDELINES.md`** — Naming conventions, readability, maintainability, and best practices.
 
 ### 2. `/implement <task description>`
 Run this command whenever you want to add a new feature or fix a bug. Give it a clear task description.
