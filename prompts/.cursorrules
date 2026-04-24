@@ -4,42 +4,49 @@ You are an AI programming assistant following the **Tasky** workflow, a lightwei
 
 ## Command: `/synthesize`
 
-**Objective:** Map the entire codebase using the `tasky-synthesize` skill to produce a comprehensive `.ai/CODE_REFERENCE.md` file.
+**Objective:** Map the entire codebase using the `tasky-synthesize` skill to produce a comprehensive set of reference documents in the `.ai/` directory.
 
 **Process:**
 1. Activate and use the `tasky-synthesize` skill.
-2. Follow its process to discover and analyze the tech stack, architecture, conventions, and testing patterns.
-3. Produce the final `.ai/CODE_REFERENCE.md` file. This MUST be the only file created.
+2. Follow its process to discover and analyze the tech stack, architecture, conventions, design patterns, testing patterns, code quality standards, and product requirements.
+3. Read each template from `assets/` and fill it with project-specific content.
+4. Produce the following files in the `.ai/` directory:
+    - `.ai/CODE_REFERENCE.md` — Tech stack, architecture, and project structure.
+    - `.ai/TEST_PATTERNS.md` — Testing conventions, naming, mocks, and coverage.
+    - `.ai/PROJECT_PATTERNS.md` — Design patterns with examples and extension guidance.
+    - `.ai/CODE_REVIEW_GUIDELINES.md` — Review checklist for the Review Agent.
+    - `.ai/PRODUCT_REQUIREMENTS.md` — Product vision and UX requirements.
+    - `.ai/CODE_QUALITY_GUIDELINES.md` — Naming conventions, quality standards, and best practices.
 
 ## Command: `/implement <task description>`
 
-**Objective:** Implement the given task while following the `tasky-implement` skill, guided strictly by `.ai/CODE_REFERENCE.md`.
+**Objective:** Implement the given task while following the `tasky-implement` skill, guided strictly by the `.ai/` reference documents.
 
 **Process:**
 1. Activate and use the `tasky-implement` skill.
 2. Follow its 6-step workflow strictly:
-    - **Step 1: Context Gathering**: Reference `.ai/CODE_REFERENCE.md`.
+    - **Step 1: Context Gathering**: Reference `.ai/CODE_REFERENCE.md`, `.ai/PROJECT_PATTERNS.md`, `.ai/CODE_QUALITY_GUIDELINES.md`, `.ai/PRODUCT_REQUIREMENTS.md`.
     - **Step 2: Ideation**: Spawn `.ai/agents/ideation-agent.md` to compare options.
     - **Step 3: User Discussion**: **MANDATORY STOP** for user confirmation.
-    - **Step 4: Execution**: Spawn `.ai/agents/execution-agent.md` with Deviation Rules.
-    - **Step 5: Review**: Spawn `.ai/agents/review-agent.md` with severity classifications.
+    - **Step 4: Execution**: Spawn `.ai/agents/execution-agent.md` — guided by `.ai/CODE_QUALITY_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`.
+    - **Step 5: Review**: Spawn `.ai/agents/review-agent.md` — guided by `.ai/CODE_REVIEW_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`.
     - **Step 6: Final Summary & Testing Guide**.
 
 ## Command: `/auto-implement <task description>`
 
-**Objective:** Implement the given task autonomously while following the `tasky-auto-implement` skill, guided strictly by `.ai/CODE_REFERENCE.md`.
+**Objective:** Implement the given task autonomously while following the `tasky-auto-implement` skill, guided strictly by the `.ai/` reference documents.
 
 **Process:**
 1. Activate and use the `tasky-auto-implement` skill.
 2. Follow its 5-step workflow autonomously:
-    - **Step 1: Context Gathering**: Reference `.ai/CODE_REFERENCE.md`.
+    - **Step 1: Context Gathering**: Reference `.ai/CODE_REFERENCE.md`, `.ai/PROJECT_PATTERNS.md`, `.ai/CODE_QUALITY_GUIDELINES.md`, `.ai/PRODUCT_REQUIREMENTS.md`.
     - **Step 2: Ideation & Planning**: Spawn `.ai/agents/ideation-agent.md` to select the best approach.
-    - **Step 3: Execution**: Spawn `.ai/agents/execution-agent.md` with Deviation Rules.
-    - **Step 4: Review**: Spawn `.ai/agents/review-agent.md` with severity classifications.
+    - **Step 3: Execution**: Spawn `.ai/agents/execution-agent.md` — guided by `.ai/CODE_QUALITY_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`.
+    - **Step 4: Review**: Spawn `.ai/agents/review-agent.md` — guided by `.ai/CODE_REVIEW_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`.
     - **Step 5: Final Summary & Testing Guide**.
 
 ## Core Mandates
-- **Single Source of Truth**: Always refer to `.ai/CODE_REFERENCE.md`.
+- **Structured Reference Documents**: Always refer to the `.ai/` reference documents — each serves a specific purpose in the workflow.
 - **Sub-agent Delegation**: Use specialized agents for ideation, execution, and review to maintain context efficiency.
 - **Atomic Commits**: Ensure every logical change is committed with a clear message.
-- **Rigorous Review**: Never consider a task complete without a structured code review.
+- **Rigorous Review**: Never consider a task complete without a structured code review following `.ai/CODE_REVIEW_GUIDELINES.md`.
