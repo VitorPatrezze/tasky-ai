@@ -1,6 +1,6 @@
 ---
 name: tasky-synthesize
-description: Analyze the entire codebase and produce structured reference documents in the .ai/ directory covering architecture, patterns, testing, code quality, review guidelines, and product requirements.
+description: Analyzes the entire codebase and produces structured reference documents in the .ai/ directory. Use when the user asks to initialize, synthesize, or update the project's reference documentation.
 ---
 
 # Tasky Synthesize
@@ -9,30 +9,62 @@ This skill analyzes a codebase to understand its tech stack, architecture, codin
 
 ## Objective
 
-Create **six** markdown files in the `.ai/` directory that serve as the definitive source of truth for the project's architecture, patterns, quality standards, and product vision.
+Create **six** markdown files in the workspace root `.ai/` directory that serve as the definitive source of truth for the project's architecture, patterns, quality standards, and product vision.
 
 ## Output Files
 
 | File | Purpose | Template |
 |------|---------|----------|
 | `.ai/CODE_REFERENCE.md` | Tech stack, architecture, project structure overview | Built-in (see below) |
-| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/test-patterns-template.md` |
-| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `reference/project-patterns-template.md` |
-| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `reference/code-review-guidelines-template.md` |
-| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `reference/product-requirements-template.md` |
-| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `reference/code-quality-guidelines-template.md` |
+| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/test-patterns-template.md` (relative to this skill) |
+| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `reference/project-patterns-template.md` (relative to this skill) |
+| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `reference/code-review-guidelines-template.md` (relative to this skill) |
+| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `reference/product-requirements-template.md` (relative to this skill) |
+| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `reference/code-quality-guidelines-template.md` (relative to this skill) |
 
 ## Process
 
-1. **Discovery**: Explore the project structure, language, framework, and dependencies.
-2. **Analysis**: Deep dive into core business logic, API patterns, state management, design patterns, and testing strategies.
-3. **Synthesis — Code Reference**: Combine architectural findings into `.ai/CODE_REFERENCE.md` using the template below.
-4. **Synthesis — Test Patterns**: Read `reference/test-patterns-template.md` and fill it with project-specific testing conventions, writing the result to `.ai/TEST_PATTERNS.md`.
-5. **Synthesis — Project Patterns**: Read `reference/project-patterns-template.md` and catalog every design pattern found in the project with concrete examples and file paths, writing the result to `.ai/PROJECT_PATTERNS.md`.
-6. **Synthesis — Code Review Guidelines**: Read `reference/code-review-guidelines-template.md` and tailor the review checklist to the project's specific patterns and conventions, writing the result to `.ai/CODE_REVIEW_GUIDELINES.md`.
-7. **Synthesis — Product Requirements**: Read `reference/product-requirements-template.md` and capture the product vision, UX requirements, and feature alignment principles, writing the result to `.ai/PRODUCT_REQUIREMENTS.md`.
-8. **Synthesis — Code Quality Guidelines**: Read `reference/code-quality-guidelines-template.md` and document the project's naming conventions, quality standards, and best practices, writing the result to `.ai/CODE_QUALITY_GUIDELINES.md`.
-9. **Finalization**: Verify all six files are written to the `.ai/` directory with project-specific content (no unfilled placeholders).
+Copy this checklist and check off items as you complete them:
+
+```
+Task Progress:
+- [ ] Step 1: Discovery
+- [ ] Step 2: Analysis
+- [ ] Step 3: Synthesis — Code Reference
+- [ ] Step 4: Synthesis — Test Patterns
+- [ ] Step 5: Synthesis — Project Patterns
+- [ ] Step 6: Synthesis — Code Review Guidelines
+- [ ] Step 7: Synthesis — Product Requirements
+- [ ] Step 8: Synthesis — Code Quality Guidelines
+- [ ] Step 9: Finalization
+```
+
+**Step 1: Discovery**
+- Explore the project structure, language, framework, and dependencies.
+
+**Step 2: Analysis**
+- Deep dive into core business logic, API patterns, state management, design patterns, and testing strategies.
+
+**Step 3: Synthesis — Code Reference**
+- Combine architectural findings into the workspace root file `.ai/CODE_REFERENCE.md` using the template below.
+
+**Step 4: Synthesis — Test Patterns**
+- Read `reference/test-patterns-template.md` (located inside this skill's directory) and fill it with project-specific testing conventions, writing the result to the workspace root file `.ai/TEST_PATTERNS.md`.
+
+**Step 5: Synthesis — Project Patterns**
+- Read `reference/project-patterns-template.md` (located inside this skill's directory) and catalog every design pattern found in the project with concrete examples and file paths, writing the result to the workspace root file `.ai/PROJECT_PATTERNS.md`.
+
+**Step 6: Synthesis — Code Review Guidelines**
+- Read `reference/code-review-guidelines-template.md` (located inside this skill's directory) and tailor the review checklist to the project's specific patterns and conventions, writing the result to the workspace root file `.ai/CODE_REVIEW_GUIDELINES.md`.
+
+**Step 7: Synthesis — Product Requirements**
+- Read `reference/product-requirements-template.md` (located inside this skill's directory) and capture the product vision, UX requirements, and feature alignment principles, writing the result to the workspace root file `.ai/PRODUCT_REQUIREMENTS.md`.
+
+**Step 8: Synthesis — Code Quality Guidelines**
+- Read `reference/code-quality-guidelines-template.md` (located inside this skill's directory) and document the project's naming conventions, quality standards, and best practices, writing the result to the workspace root file `.ai/CODE_QUALITY_GUIDELINES.md`.
+
+**Step 9: Finalization**
+- Verify all six files are written to the workspace root `.ai/` directory with project-specific content (no unfilled placeholders).
 
 ## Code Reference Template
 
@@ -77,22 +109,22 @@ The `.ai/CODE_REFERENCE.md` should follow this structure:
 
 ## Template Usage Instructions
 
-Each template file in `reference/` contains:
+Each template file in the `reference/` directory (relative to this skill) contains:
 - **Section headers** defining what information to capture
 - **Placeholder text in brackets** `[like this]` that MUST be replaced with project-specific content
 - **Code block placeholders** that MUST be filled with actual code examples from the project
 - **Example patterns** prefixed with `e.g.,` to illustrate the expected level of detail
 
 When filling a template:
-1. Read the template file from `reference/`
+1. Read the template file from this skill's `reference/` directory
 2. Analyze the relevant aspect of the codebase
 3. Replace ALL placeholders with concrete, project-specific content
 4. Include real file paths, real code examples, and real patterns from the project
 5. Remove any sections that are not applicable (e.g., API Patterns if there is no API)
-6. Write the filled document to the `.ai/` directory
+6. Write the filled document to the workspace root `.ai/` directory
 
 ## Success Criteria
-- [ ] All six `.ai/` documents are created with project-specific content.
+- [ ] All six `.ai/` documents are created with project-specific content at the workspace root.
 - [ ] No unfilled placeholder brackets `[...]` remain in any document.
 - [ ] Every document includes concrete file paths and code examples from the project.
 - [ ] `.ai/CODE_REFERENCE.md` covers tech stack, architecture, and project structure.
