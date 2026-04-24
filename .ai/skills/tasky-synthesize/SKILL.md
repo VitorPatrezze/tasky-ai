@@ -16,22 +16,22 @@ Create **six** markdown files in the `.ai/` directory that serve as the definiti
 | File | Purpose | Template |
 |------|---------|----------|
 | `.ai/CODE_REFERENCE.md` | Tech stack, architecture, project structure overview | Built-in (see below) |
-| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `assets/test-patterns-template.md` |
-| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `assets/project-patterns-template.md` |
-| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `assets/code-review-guidelines-template.md` |
-| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `assets/product-requirements-template.md` |
-| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `assets/code-quality-guidelines-template.md` |
+| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/test-patterns-template.md` |
+| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `reference/project-patterns-template.md` |
+| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `reference/code-review-guidelines-template.md` |
+| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `reference/product-requirements-template.md` |
+| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `reference/code-quality-guidelines-template.md` |
 
 ## Process
 
 1. **Discovery**: Explore the project structure, language, framework, and dependencies.
 2. **Analysis**: Deep dive into core business logic, API patterns, state management, design patterns, and testing strategies.
 3. **Synthesis — Code Reference**: Combine architectural findings into `.ai/CODE_REFERENCE.md` using the template below.
-4. **Synthesis — Test Patterns**: Read `assets/test-patterns-template.md` and fill it with project-specific testing conventions, writing the result to `.ai/TEST_PATTERNS.md`.
-5. **Synthesis — Project Patterns**: Read `assets/project-patterns-template.md` and catalog every design pattern found in the project with concrete examples and file paths, writing the result to `.ai/PROJECT_PATTERNS.md`.
-6. **Synthesis — Code Review Guidelines**: Read `assets/code-review-guidelines-template.md` and tailor the review checklist to the project's specific patterns and conventions, writing the result to `.ai/CODE_REVIEW_GUIDELINES.md`.
-7. **Synthesis — Product Requirements**: Read `assets/product-requirements-template.md` and capture the product vision, UX requirements, and feature alignment principles, writing the result to `.ai/PRODUCT_REQUIREMENTS.md`.
-8. **Synthesis — Code Quality Guidelines**: Read `assets/code-quality-guidelines-template.md` and document the project's naming conventions, quality standards, and best practices, writing the result to `.ai/CODE_QUALITY_GUIDELINES.md`.
+4. **Synthesis — Test Patterns**: Read `reference/test-patterns-template.md` and fill it with project-specific testing conventions, writing the result to `.ai/TEST_PATTERNS.md`.
+5. **Synthesis — Project Patterns**: Read `reference/project-patterns-template.md` and catalog every design pattern found in the project with concrete examples and file paths, writing the result to `.ai/PROJECT_PATTERNS.md`.
+6. **Synthesis — Code Review Guidelines**: Read `reference/code-review-guidelines-template.md` and tailor the review checklist to the project's specific patterns and conventions, writing the result to `.ai/CODE_REVIEW_GUIDELINES.md`.
+7. **Synthesis — Product Requirements**: Read `reference/product-requirements-template.md` and capture the product vision, UX requirements, and feature alignment principles, writing the result to `.ai/PRODUCT_REQUIREMENTS.md`.
+8. **Synthesis — Code Quality Guidelines**: Read `reference/code-quality-guidelines-template.md` and document the project's naming conventions, quality standards, and best practices, writing the result to `.ai/CODE_QUALITY_GUIDELINES.md`.
 9. **Finalization**: Verify all six files are written to the `.ai/` directory with project-specific content (no unfilled placeholders).
 
 ## Code Reference Template
@@ -77,14 +77,14 @@ The `.ai/CODE_REFERENCE.md` should follow this structure:
 
 ## Template Usage Instructions
 
-Each template file in `assets/` contains:
+Each template file in `reference/` contains:
 - **Section headers** defining what information to capture
 - **Placeholder text in brackets** `[like this]` that MUST be replaced with project-specific content
 - **Code block placeholders** that MUST be filled with actual code examples from the project
 - **Example patterns** prefixed with `e.g.,` to illustrate the expected level of detail
 
 When filling a template:
-1. Read the template file from `assets/`
+1. Read the template file from `reference/`
 2. Analyze the relevant aspect of the codebase
 3. Replace ALL placeholders with concrete, project-specific content
 4. Include real file paths, real code examples, and real patterns from the project
