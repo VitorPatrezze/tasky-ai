@@ -37,7 +37,26 @@ rl.question('Select an option (1-3): ', (toolAnswer) => {
   2) Workspace (Only in the current directory)
   `);
 
-  rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
+  /**
+ * Recursively copies a directory from src to dest.
+ */
+function copyRecursiveSync(src, dest) {
+  const exists = fs.existsSync(src);
+  const stats = exists && fs.statSync(src);
+  const isDirectory = exists && stats.isDirectory();
+  if (isDirectory) {
+    if (!fs.existsSync(dest)) {
+      fs.mkdirSync(dest, { recursive: true });
+    }
+    fs.readdirSync(src).forEach((childItemName) => {
+      copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
+    });
+  } else {
+    fs.copyFileSync(src, dest);
+  }
+}
+
+rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
     const scopeOption = scopeAnswer.trim();
 
     if (!['1', '2'].includes(scopeOption)) {
@@ -47,6 +66,7 @@ rl.question('Select an option (1-3): ', (toolAnswer) => {
     }
 
     try {
+      // 1. Install Tool-Specific Configurations
       if (toolOption === '1') {
         const targetDir = scopeOption === '1' 
           ? path.join(os.homedir(), '.gemini', 'commands')
@@ -62,7 +82,6 @@ rl.question('Select an option (1-3): ', (toolAnswer) => {
         }
         
         console.log(`\n✅ Successfully installed Gemini configurations to ${targetDir}`);
-        console.log('You can now run `/tasky-synthesize` and `/tasky-implement` in your local agent!');
         
       } else if (toolOption === '2') {
         if (scopeOption === '1') {
@@ -72,8 +91,6 @@ rl.question('Select an option (1-3): ', (toolAnswer) => {
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
         
         console.log(`\n✅ Successfully installed .cursorrules to ${targetFile}`);
-        console.log('Cursor is now equipped with the Tasky workflow for this project.');
-        console.log('Just type `/tasky-synthesize` or `/tasky-implement <task>` to start.');
         
       } else if (toolOption === '3') {
         if (scopeOption === '1') {
@@ -83,10 +100,20 @@ rl.question('Select an option (1-3): ', (toolAnswer) => {
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
         
         console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
-        console.log('Claude Code is now equipped with the Tasky workflow for this project.');
-        console.log('The standard `.cursorrules` file works natively as a `CLAUDE.md` context file.');
-        
       }
+
+      // 2. Install Agents and Skills (Always to Workspace)
+      const aiSrc = path.join(ROOT_DIR, '.ai');
+      const aiDest = path.join(process.cwd(), '.ai');
+      
+      if (fs.existsSync(aiSrc)) {
+        copyRecursiveSync(aiSrc, aiDest);
+        console.log(`✅ Successfully installed agents and skills to ${aiDest}`);
+      }
+
+      console.log('\n🚀 Tasky AI is now fully equipped for this project!');
+      console.log('Just type `/tasky-synthesize` or `/tasky-implement <task>` to start.');
+
     } catch (err) {
       console.error('\n❌ An error occurred during installation:', err.message);
     } finally {
