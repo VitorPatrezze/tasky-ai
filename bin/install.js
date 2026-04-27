@@ -112,13 +112,19 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
       }
 
       // 2. Install Agents and Skills (Always to Workspace)
-      const aiSrc = path.join(ROOT_DIR, '.ai');
-      const aiDest = path.join(process.cwd(), '.ai');
-      
-      if (fs.existsSync(aiSrc)) {
-        copyRecursiveSync(aiSrc, aiDest);
-        console.log(`✅ Successfully installed agents and skills to ${aiDest}`);
+      const agentsSrc = path.join(ROOT_DIR, '.ai', 'agents');
+      const agentsDest = path.join(process.cwd(), '.ai', 'agents');
+      if (fs.existsSync(agentsSrc)) {
+        copyRecursiveSync(agentsSrc, agentsDest);
       }
+      
+      const skillsSrc = path.join(ROOT_DIR, '.ai', 'skills');
+      const skillsDest = path.join(process.cwd(), '.ai', 'skills');
+      if (fs.existsSync(skillsSrc)) {
+        copyRecursiveSync(skillsSrc, skillsDest);
+      }
+
+      console.log(`✅ Successfully installed agents and skills to ${path.join(process.cwd(), '.ai')}`);
 
       console.log('\n🚀 Tasky AI is now fully equipped for this project!');
       console.log('Just type `/tasky-synthesize` or `/tasky-implement <task>` to start.');
