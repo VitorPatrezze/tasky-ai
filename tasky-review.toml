@@ -14,8 +14,10 @@ Review Request: $ARGUMENTS
     - Step 1: Context Gathering (Reference `.ai/` documents).
     - Step 2: Change Analysis (Compare current branch to main branch).
     - Step 3: Alignment Check (Verify changes against reference files).
-    - Step 4: Improvement Plan (Suggest fixes for code quality, patterns, naming, scalability).
-    - Step 5: Reference Update Suggestion (Prompt user to update reference files if new patterns are found).
+    - Step 4: Web Research (Spawn sub-agent for web research to verify alignment with broader standards).
+    - Step 5: Code Review (Sub-agent: `.ai/agents/review-agent.md` to analyze code changes).
+    - Step 6: Improvement Plan (Suggest fixes for code quality, patterns, naming, scalability based on findings).
+    - Step 7: Reference Update Suggestion (Prompt user to update reference files if new patterns are found).
 </process>
 
 <success_criteria>

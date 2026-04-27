@@ -19,8 +19,8 @@ Copy this checklist and check off items as you complete them:
 Task Progress:
 - [ ] Step 1: Context Gathering
 - [ ] Step 2: Change Analysis
-- [ ] Step 3: Alignment Check
-- [ ] Step 4: Improvement Plan Formulation
+- [ ] Step 3: Alignment Check & Web Research
+- [ ] Step 4: Review & Improvement Plan Formulation
 - [ ] Step 5: Reference Update Suggestion
 ```
 
@@ -40,18 +40,23 @@ Task Progress:
 - Check if the code aligns with `.ai/CODE_REFERENCE.md` and `.ai/PROJECT_PATTERNS.md`.
 - Verify adherence to `.ai/CODE_QUALITY_GUIDELINES.md` (naming conventions, maintainability).
 - Ensure new or modified logic is appropriately tested per `.ai/TEST_PATTERNS.md`.
-- Use the `google_web_search` tool to search the web for industry best practices related to the frameworks and design patterns used in the changes to verify alignment with broader standards.
 
-**Step 4: Improvement Plan Formulation**
-- Provide a detailed plan of fixes or improvements.
+**Step 4: Web Research**
+- Invoke a sub-agent using your available delegation or agent tool to search the web for industry best practices related to the frameworks and design patterns used in the changes to verify alignment with broader standards.
+
+**Step 5: Code Review**
+- Invoke a sub-agent using your available delegation or agent tool, using the workspace root file `.ai/agents/review-agent.md` as the system prompt or instructions, to analyze the code changes.
+
+**Step 6: Improvement Plan Formulation**
+- Based on the review sub-agent's findings, provide a detailed plan of fixes or improvements.
 - Suggest code quality changes.
 - Suggest design pattern adoptions based on the specific changes made.
-- Use the `google_web_search` tool to search the web for framework-specific suggestions and advanced design pattern implementations relevant to the changes to enrich your proposed improvements.
+- Invoke a sub-agent using your available delegation or agent tool to search the web for framework-specific suggestions and advanced design pattern implementations relevant to the changes to enrich your proposed improvements.
 - Propose variable and method naming improvements.
 - Identify and suggest scalability and maintainability improvements.
 - If everything is perfectly aligned, state this clearly.
 
-**Step 5: Reference Update Suggestion**
+**Step 7: Reference Update Suggestion**
 - Analyze if the branch introduces any *new* valid design patterns, or meaningful modifications to existing patterns that are not yet documented in the `.ai/` reference files.
 - If new/modified patterns are found, **PROMPT THE USER** with a suggestion to update the reference files (e.g., `.ai/PROJECT_PATTERNS.md` or others) with the new pattern using the `tasky-synthesize` skill or manual updates.
 - If no new patterns are introduced, explicitly state that no reference updates are necessary.
