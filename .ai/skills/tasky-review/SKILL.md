@@ -48,12 +48,14 @@ Task Progress:
 - Suggest design pattern adoptions based on the specific changes made.
 - Propose variable and method naming improvements.
 - Identify and suggest scalability and maintainability improvements.
-- If everything is perfectly aligned, state this clearly.
+- **Write this finalized Improvement Plan to a new file at `.ai/REVIEW_PLAN.md`**.
+- If everything is perfectly aligned, state this clearly and skip creating the file.
 
 **Step 6: Reference Update Suggestion**
 - Analyze if the branch introduces any *new* valid design patterns, or meaningful modifications to existing patterns that are not yet documented in the `.ai/` reference files.
 - If new/modified patterns are found, **PROMPT THE USER** with a suggestion to update the reference files (e.g., `.ai/PROJECT_PATTERNS.md` or others) with the new pattern using the `tasky-synthesize` skill or manual updates.
 - If no new patterns are introduced, explicitly state that no reference updates are necessary.
+- **Finally, tell the user:** "To implement these fixes, you can run `/tasky-implement using .ai/REVIEW_PLAN.md`" (if a plan was generated).
 
 ## Rules
 - **ALWAYS** base the review on the diff between the current branch and `main`.
