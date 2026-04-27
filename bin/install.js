@@ -77,7 +77,7 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
           fs.mkdirSync(targetDir, { recursive: true });
         }
 
-        const filesToCopy = ['tasky-implement.toml', 'tasky-auto-implement.toml', 'tasky-synthesize.toml'];
+        const filesToCopy = ['tasky-implement.toml', 'tasky-auto-implement.toml', 'tasky-synthesize.toml', 'tasky-review.toml'];
         for (const file of filesToCopy) {
           fs.copyFileSync(path.join(ROOT_DIR, file), path.join(targetDir, file));
         }
