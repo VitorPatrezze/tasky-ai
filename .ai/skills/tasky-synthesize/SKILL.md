@@ -9,7 +9,7 @@ This skill analyzes a codebase to understand its tech stack, architecture, codin
 
 ## Objective
 
-Create **six** markdown files in the workspace root `.ai/` directory that serve as the definitive source of truth for the project's architecture, patterns, quality standards, and product vision.
+Create or update **six** markdown files in the workspace root `.ai/` directory that serve as the definitive source of truth for the project's architecture, patterns, quality standards, and product vision. If these files already exist, you MUST update them to incorporate new patterns or template formatting while strictly preserving the essence of the existing content, rather than blindly overwriting them.
 
 ## Output Files
 
@@ -115,16 +115,18 @@ Each template file in the `reference/` directory (relative to this skill) contai
 - **Code block placeholders** that MUST be filled with actual code examples from the project
 - **Example patterns** prefixed with `e.g.,` to illustrate the expected level of detail
 
-When filling a template:
+When filling or updating a template:
 1. Read the template file from this skill's `reference/` directory
-2. Analyze the relevant aspect of the codebase
-3. Replace ALL placeholders with concrete, project-specific content
-4. Include real file paths, real code examples, and real patterns from the project
-5. Remove any sections that are not applicable (e.g., API Patterns if there is no API)
-6. Write the filled document to the workspace root `.ai/` directory
+2. Check if the target file (e.g., `.ai/TEST_PATTERNS.md`) already exists in the workspace root `.ai/` directory
+3. Analyze the relevant aspect of the codebase
+4. If the target file exists, UPDATE it by merging the new template structure and any newly discovered patterns, making sure to PRESERVE the essence and core content of the existing file. Do NOT blindly overwrite.
+5. If the target file does not exist, replace ALL placeholders with concrete, project-specific content
+6. Include real file paths, real code examples, and real patterns from the project
+7. Remove any sections that are not applicable (e.g., API Patterns if there is no API)
+8. Write or update the filled document in the workspace root `.ai/` directory
 
 ## Success Criteria
-- [ ] All six `.ai/` documents are created with project-specific content at the workspace root.
+- [ ] All six `.ai/` documents are created or updated with project-specific content at the workspace root, preserving the essence of existing files if they were already present.
 - [ ] No unfilled placeholder brackets `[...]` remain in any document.
 - [ ] Every document includes concrete file paths and code examples from the project.
 - [ ] `.ai/CODE_REFERENCE.md` covers tech stack, architecture, and project structure.

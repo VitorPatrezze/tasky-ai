@@ -1,0 +1,26 @@
+description = "Review all branch changes compared to the main branch against reference files and suggest improvements."
+prompt = """
+<objective>
+Review the current branch changes against the main branch using the `tasky-review` skill. Check for alignment with project reference files and suggest a plan for fixes, improvements, and reference updates.
+</objective>
+
+<context>
+Review Request: $ARGUMENTS
+</context>
+
+<process>
+1. Activate and use the `tasky-review` skill.
+2. Follow its review workflow:
+    - Step 1: Context Gathering (Reference `.ai/` documents).
+    - Step 2: Change Analysis (Compare current branch to main branch).
+    - Step 3: Alignment Check (Verify changes against reference files).
+    - Step 4: Improvement Plan (Suggest fixes for code quality, patterns, naming, scalability).
+    - Step 5: Reference Update Suggestion (Prompt user to update reference files if new patterns are found).
+</process>
+
+<success_criteria>
+- Comprehensive analysis of all branch changes compared to main.
+- Clear plan with actionable fixes and improvements provided.
+- Explicit prompt to the user regarding potential updates to `.ai/` reference documents if new patterns are identified.
+</success_criteria>
+"""

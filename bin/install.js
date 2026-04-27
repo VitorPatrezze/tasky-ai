@@ -20,12 +20,13 @@ console.log(`
   1) Gemini
   2) Cursor
   3) Claude Code
+  4) Codex
 `);
 
-rl.question('Select an option (1-3): ', (toolAnswer) => {
+rl.question('Select an option (1-4): ', (toolAnswer) => {
   const toolOption = toolAnswer.trim();
 
-  if (!['1', '2', '3'].includes(toolOption)) {
+  if (!['1', '2', '3', '4'].includes(toolOption)) {
     console.log('\n❌ Invalid option. Installation aborted.');
     rl.close();
     return;
@@ -100,16 +101,45 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
         
         console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
+      } else if (toolOption === '4') {
+        if (scopeOption === '1') {
+          console.log('\n⚠️  Codex does not support global AGENTS.md. Falling back to workspace installation.');
+        }
+        const targetFile = path.join(process.cwd(), 'AGENTS.md');
+        fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
+        
+        console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
       }
 
-      // 2. Install Agents and Skills (Always to Workspace)
-      const aiSrc = path.join(ROOT_DIR, '.ai');
-      const aiDest = path.join(process.cwd(), '.ai');
-      
-      if (fs.existsSync(aiSrc)) {
-        copyRecursiveSync(aiSrc, aiDest);
-        console.log(`✅ Successfully installed agents and skills to ${aiDest}`);
+      // 2. Install Specific Tasky Agents
+      const taskyAgents = ['execution-agent.md', 'ideation-agent.md', 'review-agent.md'];
+      const agentsDestDir = path.join(process.cwd(), '.ai', 'agents');
+      if (!fs.existsSync(agentsDestDir)) {
+        fs.mkdirSync(agentsDestDir, { recursive: true });
       }
+      taskyAgents.forEach(agent => {
+        const srcFile = path.join(ROOT_DIR, '.ai', 'agents', agent);
+        const destFile = path.join(agentsDestDir, agent);
+        if (fs.existsSync(srcFile)) {
+          fs.copyFileSync(srcFile, destFile);
+        }
+      });
+
+      // 3. Install Specific Tasky Skills
+      const taskySkills = ['tasky-auto-implement', 'tasky-implement', 'tasky-review', 'tasky-synthesize'];
+      const skillsDestDir = path.join(process.cwd(), '.ai', 'skills');
+      if (!fs.existsSync(skillsDestDir)) {
+        fs.mkdirSync(skillsDestDir, { recursive: true });
+      }
+      taskySkills.forEach(skill => {
+        const srcDir = path.join(ROOT_DIR, '.ai', 'skills', skill);
+        const destDir = path.join(skillsDestDir, skill);
+        if (fs.existsSync(srcDir)) {
+          copyRecursiveSync(srcDir, destDir);
+        }
+      });
+
+      console.log(`✅ Successfully installed Tasky agents and skills to ${path.join(process.cwd(), '.ai')}`);
 
       console.log('\n🚀 Tasky AI is now fully equipped for this project!');
       console.log('Just type `/tasky-synthesize` or `/tasky-implement <task>` to start.');
