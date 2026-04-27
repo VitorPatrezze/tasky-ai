@@ -20,12 +20,13 @@ console.log(`
   1) Gemini
   2) Cursor
   3) Claude Code
+  4) Codex
 `);
 
-rl.question('Select an option (1-3): ', (toolAnswer) => {
+rl.question('Select an option (1-4): ', (toolAnswer) => {
   const toolOption = toolAnswer.trim();
 
-  if (!['1', '2', '3'].includes(toolOption)) {
+  if (!['1', '2', '3', '4'].includes(toolOption)) {
     console.log('\n❌ Invalid option. Installation aborted.');
     rl.close();
     return;
@@ -97,6 +98,14 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
           console.log('\n⚠️  Claude Code does not support global CLAUDE.md. Falling back to workspace installation.');
         }
         const targetFile = path.join(process.cwd(), 'CLAUDE.md');
+        fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
+        
+        console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
+      } else if (toolOption === '4') {
+        if (scopeOption === '1') {
+          console.log('\n⚠️  Codex does not support global AGENTS.md. Falling back to workspace installation.');
+        }
+        const targetFile = path.join(process.cwd(), 'AGENTS.md');
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
         
         console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);

@@ -36,6 +36,7 @@ Task Progress:
 
 **Step 2: Ideation (Sub-agent)**
 - Invoke a sub-agent using your available delegation or agent tool, using the workspace root file `.ai/agents/ideation-agent.md` as the system prompt or instructions, to research and compare implementation options.
+- ALWAYS instruct the sub-agent to generate AT LEAST two implementation plans: one complex approach that strictly follows rules for code scalability, and one simplistic approach designed for fast testing.
 - The sub-agent must return a comparison table and conditional recommendations.
 
 **Step 3: User Discussion**
@@ -70,3 +71,4 @@ Task Progress:
 - **NEVER** proceed to execution without user confirmation in Step 3.
 - **ALWAYS** perform a code review and respect the feedback loop.
 - **ALWAYS** adhere to the `.ai/` reference documents.
+- **ALWAYS** suggest at least two implementation plans (one scalable/complex, one fast/simplistic).
