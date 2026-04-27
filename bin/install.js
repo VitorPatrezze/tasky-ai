@@ -41,23 +41,23 @@ rl.question('Select an option (1-4): ', (toolAnswer) => {
   /**
  * Recursively copies a directory from src to dest.
  */
-function copyRecursiveSync(src, dest) {
-  const exists = fs.existsSync(src);
-  const stats = exists && fs.statSync(src);
-  const isDirectory = exists && stats.isDirectory();
-  if (isDirectory) {
-    if (!fs.existsSync(dest)) {
-      fs.mkdirSync(dest, { recursive: true });
+  function copyRecursiveSync(src, dest) {
+    const exists = fs.existsSync(src);
+    const stats = exists && fs.statSync(src);
+    const isDirectory = exists && stats.isDirectory();
+    if (isDirectory) {
+      if (!fs.existsSync(dest)) {
+        fs.mkdirSync(dest, { recursive: true });
+      }
+      fs.readdirSync(src).forEach((childItemName) => {
+        copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
+      });
+    } else {
+      fs.copyFileSync(src, dest);
     }
-    fs.readdirSync(src).forEach((childItemName) => {
-      copyRecursiveSync(path.join(src, childItemName), path.join(dest, childItemName));
-    });
-  } else {
-    fs.copyFileSync(src, dest);
   }
-}
 
-rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
+  rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
     const scopeOption = scopeAnswer.trim();
 
     if (!['1', '2'].includes(scopeOption)) {
@@ -69,10 +69,10 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
     try {
       // 1. Install Tool-Specific Configurations
       if (toolOption === '1') {
-        const targetDir = scopeOption === '1' 
+        const targetDir = scopeOption === '1'
           ? path.join(os.homedir(), '.gemini', 'commands')
           : path.join(process.cwd(), '.gemini', 'commands');
-          
+
         if (!fs.existsSync(targetDir)) {
           fs.mkdirSync(targetDir, { recursive: true });
         }
@@ -81,25 +81,25 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
         for (const file of filesToCopy) {
           fs.copyFileSync(path.join(ROOT_DIR, file), path.join(targetDir, file));
         }
-        
+
         console.log(`\n✅ Successfully installed Gemini configurations to ${targetDir}`);
-        
+
       } else if (toolOption === '2') {
         if (scopeOption === '1') {
           console.log('\n⚠️  Cursor does not support global .cursorrules. Falling back to workspace installation.');
         }
         const targetFile = path.join(process.cwd(), '.cursorrules');
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
-        
+
         console.log(`\n✅ Successfully installed .cursorrules to ${targetFile}`);
-        
+
       } else if (toolOption === '3') {
         if (scopeOption === '1') {
           console.log('\n⚠️  Claude Code does not support global CLAUDE.md. Falling back to workspace installation.');
         }
         const targetFile = path.join(process.cwd(), 'CLAUDE.md');
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
-        
+
         console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
       } else if (toolOption === '4') {
         if (scopeOption === '1') {
@@ -107,7 +107,7 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
         }
         const targetFile = path.join(process.cwd(), 'AGENTS.md');
         fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
-        
+
         console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
       }
 

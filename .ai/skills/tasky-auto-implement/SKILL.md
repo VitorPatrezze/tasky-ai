@@ -26,7 +26,7 @@ Task Progress:
 ```
 
 **Step 1: Context Gathering**
-- Read the task description.
+- Read the task description. If the task mentions a pre-existing plan (e.g., `.ai/REVIEW_PLAN.md`), read that file immediately to serve as the baseline implementation plan.
 - Read the workspace root file `.ai/CODE_REFERENCE.md` to understand architecture, tech stack, and project structure.
 - Read the workspace root file `.ai/PROJECT_PATTERNS.md` to understand established design patterns and how to extend them.
 - Read the workspace root file `.ai/CODE_QUALITY_GUIDELINES.md` to understand naming conventions and quality standards.
@@ -36,6 +36,7 @@ Task Progress:
 **Step 2: Ideation & Planning (Sub-agent)**
 - Invoke a sub-agent using your available delegation or agent tool, using the workspace root file `.ai/agents/ideation-agent.md` as the system prompt or instructions, to research and compare implementation options.
 - The sub-agent must autonomously select the best approach and formulate a plan.
+- **Exception**: If a concrete plan (like `.ai/REVIEW_PLAN.md`) was provided in Step 1, instruct the sub-agent to strictly convert it into an execution checklist without researching new approaches.
 
 **Step 3: Execution (Sub-agent)**
 - Execute the selected plan by invoking a sub-agent using your available delegation or agent tool, using the workspace root file `.ai/agents/execution-agent.md` as the system prompt or instructions.
@@ -52,6 +53,7 @@ Task Progress:
 **Step 5: Final Summary**
 - Summarize the work done.
 - Provide a step-by-step testing guide for the user.
+- **Cleanup Prompt**: If a concrete plan like `.ai/REVIEW_PLAN.md` was provided and fully implemented, explicitly ask the user if you should remove/delete this file to keep the workspace clean.
 
 **Step 6: (Optional) Update Reference Documents**
 - If the changes impact the project's architecture, patterns, or guidelines, update the relevant `.ai/` reference files at the workspace root.
