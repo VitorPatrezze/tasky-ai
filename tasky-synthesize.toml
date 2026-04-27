@@ -7,8 +7,9 @@ Map the entire codebase using the `tasky-synthesize` skill to produce a comprehe
 <process>
 1. Activate and use the `tasky-synthesize` skill.
 2. Follow its process to discover and analyze the tech stack, architecture, conventions, design patterns, testing patterns, code quality standards, and product requirements.
-3. Read each template from `reference/` and fill it with project-specific content.
-4. Produce the following files in the `.ai/` directory:
+3. Check if the `.ai/` reference documents already exist in the workspace.
+4. Read each template from `reference/`. If a reference file already exists, UPDATE it to merge existing content with new findings or new template formatting, ensuring that the essence of the existing content is preserved. If it does not exist, fill the template with project-specific content to create it.
+5. Produce or update the following files in the `.ai/` directory:
     - `.ai/CODE_REFERENCE.md` — Tech stack, architecture, and project structure overview.
     - `.ai/TEST_PATTERNS.md` — Testing conventions, naming, mocks, and coverage expectations.
     - `.ai/PROJECT_PATTERNS.md` — Design patterns with examples and extension guidance.
@@ -18,7 +19,8 @@ Map the entire codebase using the `tasky-synthesize` skill to produce a comprehe
 </process>
 
 <success_criteria>
-- All six `.ai/` documents are created with project-specific content.
+- All six `.ai/` documents are created or updated with project-specific content.
+- Existing files are updated (preserving essential content) rather than overwritten blindly.
 - No unfilled placeholder brackets remain in any document.
 - Every document includes concrete file paths and code examples from the project.
 </success_criteria>
