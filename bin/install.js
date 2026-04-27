@@ -111,20 +111,35 @@ rl.question('Select installation scope (1-2): ', (scopeAnswer) => {
         console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
       }
 
-      // 2. Install Agents and Skills (Always to Workspace)
-      const agentsSrc = path.join(ROOT_DIR, '.ai', 'agents');
-      const agentsDest = path.join(process.cwd(), '.ai', 'agents');
-      if (fs.existsSync(agentsSrc)) {
-        copyRecursiveSync(agentsSrc, agentsDest);
+      // 2. Install Specific Tasky Agents
+      const taskyAgents = ['execution-agent.md', 'ideation-agent.md', 'review-agent.md'];
+      const agentsDestDir = path.join(process.cwd(), '.ai', 'agents');
+      if (!fs.existsSync(agentsDestDir)) {
+        fs.mkdirSync(agentsDestDir, { recursive: true });
       }
-      
-      const skillsSrc = path.join(ROOT_DIR, '.ai', 'skills');
-      const skillsDest = path.join(process.cwd(), '.ai', 'skills');
-      if (fs.existsSync(skillsSrc)) {
-        copyRecursiveSync(skillsSrc, skillsDest);
-      }
+      taskyAgents.forEach(agent => {
+        const srcFile = path.join(ROOT_DIR, '.ai', 'agents', agent);
+        const destFile = path.join(agentsDestDir, agent);
+        if (fs.existsSync(srcFile)) {
+          fs.copyFileSync(srcFile, destFile);
+        }
+      });
 
-      console.log(`✅ Successfully installed agents and skills to ${path.join(process.cwd(), '.ai')}`);
+      // 3. Install Specific Tasky Skills
+      const taskySkills = ['tasky-auto-implement', 'tasky-implement', 'tasky-review', 'tasky-synthesize'];
+      const skillsDestDir = path.join(process.cwd(), '.ai', 'skills');
+      if (!fs.existsSync(skillsDestDir)) {
+        fs.mkdirSync(skillsDestDir, { recursive: true });
+      }
+      taskySkills.forEach(skill => {
+        const srcDir = path.join(ROOT_DIR, '.ai', 'skills', skill);
+        const destDir = path.join(skillsDestDir, skill);
+        if (fs.existsSync(srcDir)) {
+          copyRecursiveSync(srcDir, destDir);
+        }
+      });
+
+      console.log(`✅ Successfully installed Tasky agents and skills to ${path.join(process.cwd(), '.ai')}`);
 
       console.log('\n🚀 Tasky AI is now fully equipped for this project!');
       console.log('Just type `/tasky-synthesize` or `/tasky-implement <task>` to start.');
