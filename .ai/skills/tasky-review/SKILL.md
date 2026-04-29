@@ -26,11 +26,11 @@ Task Progress:
 ```
 
 **Step 1: Context Gathering**
-- Read the workspace root file `.ai/CODE_REFERENCE.md` to understand architecture and tech stack.
-- Read the workspace root file `.ai/PROJECT_PATTERNS.md` to understand established design patterns.
-- Read the workspace root file `.ai/CODE_QUALITY_GUIDELINES.md` to understand naming and quality standards.
-- Read the workspace root file `.ai/CODE_REVIEW_GUIDELINES.md` for specific review checklists.
-- Read the workspace root file `.ai/TEST_PATTERNS.md` for testing expectations.
+- Read the workspace root file `.ai/tasky-code-reference.md` to understand architecture and tech stack.
+- Read the workspace root file `.ai/tasky-project-patterns.md` to understand established design patterns.
+- Read the workspace root file `.ai/tasky-code-quality-guidelines.md` to understand naming and quality standards.
+- Read the workspace root file `.ai/tasky-code-review-guidelines.md` for specific review checklists.
+- Read the workspace root file `.ai/tasky-test-patterns.md` for testing expectations.
 
 **Step 2: Change Analysis**
 - Execute shell commands (e.g., `git fetch`, `git diff main...HEAD`, `git log main..HEAD`) to analyze all commits and code changes made in the current branch compared to the `main` branch.
@@ -53,7 +53,7 @@ Task Progress:
 
 **Step 6: Reference Update Suggestion**
 - Analyze if the branch introduces any *new* valid design patterns, or meaningful modifications to existing patterns that are not yet documented in the `.ai/` reference files.
-- If new/modified patterns are found, **PROMPT THE USER** with a suggestion to update the reference files (e.g., `.ai/PROJECT_PATTERNS.md` or others) with the new pattern using the `tasky-synthesize` skill or manual updates.
+- If new/modified patterns are found, **PROMPT THE USER** with a suggestion to update the reference files (e.g., `.ai/tasky-project-patterns.md` or others) with the new pattern using the `tasky-synthesize` skill or manual updates.
 - If no new patterns are introduced, explicitly state that no reference updates are necessary.
 - **Finally, tell the user:** "To implement these fixes, you can run `/tasky-implement using .ai/REVIEW_PLAN.md`" (if a plan was generated).
 

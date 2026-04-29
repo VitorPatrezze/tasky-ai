@@ -9,11 +9,11 @@
 
 Every code review must verify:
 1. **Correctness** — The code does what it's supposed to do
-2. **Pattern Adherence** — The code follows established project patterns (see `.ai/PROJECT_PATTERNS.md`)
-3. **Code Quality** — The code meets quality standards (see `.ai/CODE_QUALITY_GUIDELINES.md`)
-4. **Test Coverage** — All scenarios are tested (see `.ai/TEST_PATTERNS.md`)
+2. **Pattern Adherence** — The code follows established project patterns (see `.ai/tasky-project-patterns.md`)
+3. **Code Quality** — The code meets quality standards (see `.ai/tasky-code-quality-guidelines.md`)
+4. **Test Coverage** — All scenarios are tested (see `.ai/tasky-test-patterns.md`)
 5. **Security** — No vulnerabilities are introduced
-6. **Product Alignment** — The implementation meets product requirements (see `.ai/PRODUCT_REQUIREMENTS.md`)
+6. **Product Alignment** — The implementation meets product requirements (see `.ai/tasky-product-requirements.md`)
 
 ---
 
@@ -28,7 +28,7 @@ Every code review must verify:
 - [ ] State mutations are intentional and predictable
 
 ### 2. Pattern Adherence
-- [ ] New code follows the architectural patterns defined in `.ai/PROJECT_PATTERNS.md`
+- [ ] New code follows the architectural patterns defined in `.ai/tasky-project-patterns.md`
 - [ ] No new patterns introduced where existing ones apply
 - [ ] API endpoints follow the established route and response conventions
 - [ ] Data access follows the repository/service layer separation
@@ -36,7 +36,7 @@ Every code review must verify:
 - [ ] File placement matches the project's directory conventions
 
 ### 3. Code Quality
-- [ ] Naming conventions match `.ai/CODE_QUALITY_GUIDELINES.md`
+- [ ] Naming conventions match `.ai/tasky-code-quality-guidelines.md`
 - [ ] Functions/methods are focused and single-purpose
 - [ ] No duplicated logic — shared concerns are extracted
 - [ ] No dead code, commented-out blocks, or TODOs without tickets
@@ -52,8 +52,8 @@ Every code review must verify:
 - [ ] Error/failure scenarios are tested
 - [ ] Edge cases are tested (empty inputs, max values, concurrent access)
 - [ ] Integration points are tested (API endpoints, DB queries, external service calls)
-- [ ] Test naming follows the conventions in `.ai/TEST_PATTERNS.md`
-- [ ] Mocks/stubs follow the established patterns in `.ai/TEST_PATTERNS.md`
+- [ ] Test naming follows the conventions in `.ai/tasky-test-patterns.md`
+- [ ] Mocks/stubs follow the established patterns in `.ai/tasky-test-patterns.md`
 - [ ] No test logic leaks into production code
 
 ### 5. Security
@@ -103,7 +103,7 @@ All findings must be classified into one of these severity levels:
 - [List of scenarios covered]
 - [List of scenarios MISSING coverage — classified as Warning]
 
-**Pattern Compliance**: [Summary of adherence to PROJECT_PATTERNS.md]
+**Pattern Compliance**: [Summary of adherence to tasky-project-patterns.md]
 
 **Verification**: [Summary of whether all requirements were met]
 ```

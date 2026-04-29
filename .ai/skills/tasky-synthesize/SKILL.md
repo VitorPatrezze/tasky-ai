@@ -15,12 +15,12 @@ Create or update **six** markdown files in the workspace root `.ai/` directory t
 
 | File | Purpose | Template |
 |------|---------|----------|
-| `.ai/CODE_REFERENCE.md` | Tech stack, architecture, project structure overview | Built-in (see below) |
-| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/test-patterns-template.md` (relative to this skill) |
-| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `reference/project-patterns-template.md` (relative to this skill) |
-| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `reference/code-review-guidelines-template.md` (relative to this skill) |
-| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `reference/product-requirements-template.md` (relative to this skill) |
-| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `reference/code-quality-guidelines-template.md` (relative to this skill) |
+| `.ai/tasky-code-reference.md` | Tech stack, architecture, project structure overview | Built-in (see below) |
+| `.ai/tasky-test-patterns.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/tasky-test-patterns-template.md` (relative to this skill) |
+| `.ai/tasky-project-patterns.md` | Design patterns with examples, locations, and extension guidance | `reference/tasky-project-patterns-template.md` (relative to this skill) |
+| `.ai/tasky-code-review-guidelines.md` | Review checklist and severity classifications for the Review Agent | `reference/tasky-code-review-guidelines-template.md` (relative to this skill) |
+| `.ai/tasky-product-requirements.md` | Product vision, UX requirements, feature alignment principles | `reference/tasky-product-requirements-template.md` (relative to this skill) |
+| `.ai/tasky-code-quality-guidelines.md` | Naming conventions, readability, maintainability, security standards | `reference/tasky-code-quality-guidelines-template.md` (relative to this skill) |
 
 ## Process
 
@@ -46,29 +46,29 @@ Task Progress:
 - Deep dive into core business logic, API patterns, state management, design patterns, and testing strategies.
 
 **Step 3: Synthesis — Code Reference**
-- Combine architectural findings into the workspace root file `.ai/CODE_REFERENCE.md` using the template below.
+- Combine architectural findings into the workspace root file `.ai/tasky-code-reference.md` using the template below.
 
 **Step 4: Synthesis — Test Patterns**
-- Read `reference/test-patterns-template.md` (located inside this skill's directory) and fill it with project-specific testing conventions, writing the result to the workspace root file `.ai/TEST_PATTERNS.md`.
+- Read `reference/tasky-test-patterns-template.md` (located inside this skill's directory) and fill it with project-specific testing conventions, writing the result to the workspace root file `.ai/tasky-test-patterns.md`.
 
 **Step 5: Synthesis — Project Patterns**
-- Read `reference/project-patterns-template.md` (located inside this skill's directory) and catalog every design pattern found in the project with concrete examples and file paths, writing the result to the workspace root file `.ai/PROJECT_PATTERNS.md`.
+- Read `reference/tasky-project-patterns-template.md` (located inside this skill's directory) and catalog every design pattern found in the project with concrete examples and file paths, writing the result to the workspace root file `.ai/tasky-project-patterns.md`.
 
 **Step 6: Synthesis — Code Review Guidelines**
-- Read `reference/code-review-guidelines-template.md` (located inside this skill's directory) and tailor the review checklist to the project's specific patterns and conventions, writing the result to the workspace root file `.ai/CODE_REVIEW_GUIDELINES.md`.
+- Read `reference/tasky-code-review-guidelines-template.md` (located inside this skill's directory) and tailor the review checklist to the project's specific patterns and conventions, writing the result to the workspace root file `.ai/tasky-code-review-guidelines.md`.
 
 **Step 7: Synthesis — Product Requirements**
-- Read `reference/product-requirements-template.md` (located inside this skill's directory) and capture the product vision, UX requirements, and feature alignment principles, writing the result to the workspace root file `.ai/PRODUCT_REQUIREMENTS.md`.
+- Read `reference/tasky-product-requirements-template.md` (located inside this skill's directory) and capture the product vision, UX requirements, and feature alignment principles, writing the result to the workspace root file `.ai/tasky-product-requirements.md`.
 
 **Step 8: Synthesis — Code Quality Guidelines**
-- Read `reference/code-quality-guidelines-template.md` (located inside this skill's directory) and document the project's naming conventions, quality standards, and best practices, writing the result to the workspace root file `.ai/CODE_QUALITY_GUIDELINES.md`.
+- Read `reference/tasky-code-quality-guidelines-template.md` (located inside this skill's directory) and document the project's naming conventions, quality standards, and best practices, writing the result to the workspace root file `.ai/tasky-code-quality-guidelines.md`.
 
 **Step 9: Finalization**
 - Verify all six files are written to the workspace root `.ai/` directory with project-specific content (no unfilled placeholders).
 
 ## Code Reference Template
 
-The `.ai/CODE_REFERENCE.md` should follow this structure:
+The `.ai/tasky-code-reference.md` should follow this structure:
 
 ```markdown
 # Project Reference: [Project Name]
@@ -105,7 +105,7 @@ The `.ai/CODE_REFERENCE.md` should follow this structure:
 *Last Updated: [YYYY-MM-DD]*
 ```
 
-> **Note**: Naming conventions, testing patterns, and design patterns have been moved to their dedicated documents (`.ai/CODE_QUALITY_GUIDELINES.md`, `.ai/TEST_PATTERNS.md`, `.ai/PROJECT_PATTERNS.md`) to avoid duplication.
+> **Note**: Naming conventions, testing patterns, and design patterns have been moved to their dedicated documents (`.ai/tasky-code-quality-guidelines.md`, `.ai/tasky-test-patterns.md`, `.ai/tasky-project-patterns.md`) to avoid duplication.
 
 ## Template Usage Instructions
 
@@ -117,7 +117,7 @@ Each template file in the `reference/` directory (relative to this skill) contai
 
 When filling or updating a template:
 1. Read the template file from this skill's `reference/` directory
-2. Check if the target file (e.g., `.ai/TEST_PATTERNS.md`) already exists in the workspace root `.ai/` directory
+2. Check if the target file (e.g., `.ai/tasky-test-patterns.md`) already exists in the workspace root `.ai/` directory
 3. Analyze the relevant aspect of the codebase
 4. If the target file exists, UPDATE it by merging the new template structure and any newly discovered patterns, making sure to PRESERVE the essence and core content of the existing file. Do NOT blindly overwrite.
 5. If the target file does not exist, replace ALL placeholders with concrete, project-specific content
@@ -129,9 +129,9 @@ When filling or updating a template:
 - [ ] All six `.ai/` documents are created or updated with project-specific content at the workspace root, preserving the essence of existing files if they were already present.
 - [ ] No unfilled placeholder brackets `[...]` remain in any document.
 - [ ] Every document includes concrete file paths and code examples from the project.
-- [ ] `.ai/CODE_REFERENCE.md` covers tech stack, architecture, and project structure.
-- [ ] `.ai/TEST_PATTERNS.md` covers test naming, folder structure, mocks, and coverage expectations.
-- [ ] `.ai/PROJECT_PATTERNS.md` catalogs all design patterns with examples and extension guidance.
-- [ ] `.ai/CODE_REVIEW_GUIDELINES.md` defines a review checklist tailored to the project.
-- [ ] `.ai/PRODUCT_REQUIREMENTS.md` captures the product vision and UX requirements.
-- [ ] `.ai/CODE_QUALITY_GUIDELINES.md` documents naming conventions, quality standards, and best practices.
+- [ ] `.ai/tasky-code-reference.md` covers tech stack, architecture, and project structure.
+- [ ] `.ai/tasky-test-patterns.md` covers test naming, folder structure, mocks, and coverage expectations.
+- [ ] `.ai/tasky-project-patterns.md` catalogs all design patterns with examples and extension guidance.
+- [ ] `.ai/tasky-code-review-guidelines.md` defines a review checklist tailored to the project.
+- [ ] `.ai/tasky-product-requirements.md` captures the product vision and UX requirements.
+- [ ] `.ai/tasky-code-quality-guidelines.md` documents naming conventions, quality standards, and best practices.

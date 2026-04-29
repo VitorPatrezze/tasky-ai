@@ -10,12 +10,12 @@ Map the entire codebase using the `tasky-synthesize` skill to produce a comprehe
 3. Check if the `.ai/` reference documents already exist in the workspace.
 4. Read each template from `reference/`. If a reference file already exists, UPDATE it to merge existing content with new findings or new template formatting, ensuring that the essence of the existing content is preserved. If it does not exist, fill the template with project-specific content to create it.
 5. Produce or update the following files in the `.ai/` directory:
-    - `.ai/CODE_REFERENCE.md` — Tech stack, architecture, and project structure overview.
-    - `.ai/TEST_PATTERNS.md` — Testing conventions, naming, mocks, and coverage expectations.
-    - `.ai/PROJECT_PATTERNS.md` — Design patterns with examples and extension guidance.
-    - `.ai/CODE_REVIEW_GUIDELINES.md` — Review checklist for the Review Agent.
-    - `.ai/PRODUCT_REQUIREMENTS.md` — Product vision and UX requirements.
-    - `.ai/CODE_QUALITY_GUIDELINES.md` — Naming conventions, quality standards, and best practices.
+    - `.ai/tasky-code-reference.md` — Tech stack, architecture, and project structure overview.
+    - `.ai/tasky-test-patterns.md` — Testing conventions, naming, mocks, and coverage expectations.
+    - `.ai/tasky-project-patterns.md` — Design patterns with examples and extension guidance.
+    - `.ai/tasky-code-review-guidelines.md` — Review checklist for the Review Agent.
+    - `.ai/tasky-product-requirements.md` — Product vision and UX requirements.
+    - `.ai/tasky-code-quality-guidelines.md` — Naming conventions, quality standards, and best practices.
 </process>
 
 <success_criteria>
