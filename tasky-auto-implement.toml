@@ -12,9 +12,9 @@ Task Description: $ARGUMENTS
 1. Activate and use the `tasky-auto-implement` skill.
 2. Follow its 5-step workflow autonomously:
     - Step 1: Context Gathering (Reference `.ai/` documents and check for provided plan files like `.ai/REVIEW_PLAN.md`).
-    - Step 2: Ideation & Planning (Sub-agent: `.ai/agents/ideation-agent.md`).
-    - Step 3: Execution (Sub-agent: `.ai/agents/execution-agent.md` — guided by `.ai/CODE_QUALITY_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`).
-    - Step 4: Review (Sub-agent: `.ai/agents/review-agent.md` — guided by `.ai/CODE_REVIEW_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`).
+    - Step 2: Ideation & Planning (Sub-agent: `.ai/agents/tasky-ideation-agent.md`).
+    - Step 3: Execution (Sub-agent: `.ai/agents/tasky-execution-agent.md` — guided by `.ai/CODE_QUALITY_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`).
+    - Step 4: Review (Sub-agent: `.ai/agents/tasky-review-agent.md` — guided by `.ai/CODE_REVIEW_GUIDELINES.md` and `.ai/TEST_PATTERNS.md`).
     - Step 5: Final Summary & Testing Guide (and ask to delete `.ai/REVIEW_PLAN.md` if used).
     - Step 6: (Optional) Update Reference Documents if needed.
 </process>

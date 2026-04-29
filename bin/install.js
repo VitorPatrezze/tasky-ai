@@ -67,53 +67,36 @@ rl.question('Select an option (1-4): ', (toolAnswer) => {
     }
 
     try {
+      let toolDir;
+      let toolName;
+      if (toolOption === '1') { toolDir = '.gemini'; toolName = 'Gemini'; }
+      else if (toolOption === '2') { toolDir = '.cursor'; toolName = 'Cursor'; }
+      else if (toolOption === '3') { toolDir = '.claude'; toolName = 'Claude Code'; }
+      else if (toolOption === '4') { toolDir = '.codex'; toolName = 'Codex'; }
+
+      const targetDir = scopeOption === '1'
+        ? path.join(os.homedir(), toolDir, 'commands')
+        : path.join(process.cwd(), toolDir, 'commands');
+
+      const filesToCopy = ['tasky-implement.toml', 'tasky-auto-implement.toml', 'tasky-synthesize.toml', 'tasky-review.toml'];
+      const taskyAgents = ['tasky-execution-agent.md', 'tasky-ideation-agent.md', 'tasky-review-agent.md'];
+      const taskySkills = ['tasky-auto-implement', 'tasky-implement', 'tasky-review', 'tasky-synthesize'];
+      
+      const agentsDestDir = path.join(process.cwd(), '.ai', 'agents');
+      const skillsDestDir = path.join(process.cwd(), '.ai', 'skills');
+
       // 1. Install Tool-Specific Configurations
-      if (toolOption === '1') {
-        const targetDir = scopeOption === '1'
-          ? path.join(os.homedir(), '.gemini', 'commands')
-          : path.join(process.cwd(), '.gemini', 'commands');
-
-        if (!fs.existsSync(targetDir)) {
-          fs.mkdirSync(targetDir, { recursive: true });
-        }
-
-        const filesToCopy = ['tasky-implement.toml', 'tasky-auto-implement.toml', 'tasky-synthesize.toml', 'tasky-review.toml'];
-        for (const file of filesToCopy) {
-          fs.copyFileSync(path.join(ROOT_DIR, file), path.join(targetDir, file));
-        }
-
-        console.log(`\n✅ Successfully installed Gemini configurations to ${targetDir}`);
-
-      } else if (toolOption === '2') {
-        if (scopeOption === '1') {
-          console.log('\n⚠️  Cursor does not support global .cursorrules. Falling back to workspace installation.');
-        }
-        const targetFile = path.join(process.cwd(), '.cursorrules');
-        fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
-
-        console.log(`\n✅ Successfully installed .cursorrules to ${targetFile}`);
-
-      } else if (toolOption === '3') {
-        if (scopeOption === '1') {
-          console.log('\n⚠️  Claude Code does not support global CLAUDE.md. Falling back to workspace installation.');
-        }
-        const targetFile = path.join(process.cwd(), 'CLAUDE.md');
-        fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
-
-        console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
-      } else if (toolOption === '4') {
-        if (scopeOption === '1') {
-          console.log('\n⚠️  Codex does not support global AGENTS.md. Falling back to workspace installation.');
-        }
-        const targetFile = path.join(process.cwd(), 'AGENTS.md');
-        fs.copyFileSync(path.join(ROOT_DIR, 'prompts', '.cursorrules'), targetFile);
-
-        console.log(`\n✅ Successfully installed Tasky instructions to ${targetFile}`);
+      if (!fs.existsSync(targetDir)) {
+        fs.mkdirSync(targetDir, { recursive: true });
       }
 
+      for (const file of filesToCopy) {
+        fs.copyFileSync(path.join(ROOT_DIR, file), path.join(targetDir, file));
+      }
+
+      console.log(`\n✅ Successfully installed ${toolName} configurations to ${targetDir}`);
+
       // 2. Install Specific Tasky Agents
-      const taskyAgents = ['execution-agent.md', 'ideation-agent.md', 'review-agent.md'];
-      const agentsDestDir = path.join(process.cwd(), '.ai', 'agents');
       if (!fs.existsSync(agentsDestDir)) {
         fs.mkdirSync(agentsDestDir, { recursive: true });
       }
@@ -126,8 +109,6 @@ rl.question('Select an option (1-4): ', (toolAnswer) => {
       });
 
       // 3. Install Specific Tasky Skills
-      const taskySkills = ['tasky-auto-implement', 'tasky-implement', 'tasky-review', 'tasky-synthesize'];
-      const skillsDestDir = path.join(process.cwd(), '.ai', 'skills');
       if (!fs.existsSync(skillsDestDir)) {
         fs.mkdirSync(skillsDestDir, { recursive: true });
       }

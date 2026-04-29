@@ -16,11 +16,11 @@ Create or update **six** markdown files in the workspace root `.ai/` directory t
 | File | Purpose | Template |
 |------|---------|----------|
 | `.ai/CODE_REFERENCE.md` | Tech stack, architecture, project structure overview | Built-in (see below) |
-| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/test-patterns-template.md` (relative to this skill) |
-| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `reference/project-patterns-template.md` (relative to this skill) |
-| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `reference/code-review-guidelines-template.md` (relative to this skill) |
-| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `reference/product-requirements-template.md` (relative to this skill) |
-| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `reference/code-quality-guidelines-template.md` (relative to this skill) |
+| `.ai/TEST_PATTERNS.md` | Testing framework, naming, folder structure, mocks/stubs | `reference/tasky-test-patterns-template.md` (relative to this skill) |
+| `.ai/PROJECT_PATTERNS.md` | Design patterns with examples, locations, and extension guidance | `reference/tasky-project-patterns-template.md` (relative to this skill) |
+| `.ai/CODE_REVIEW_GUIDELINES.md` | Review checklist and severity classifications for the Review Agent | `reference/tasky-code-review-guidelines-template.md` (relative to this skill) |
+| `.ai/PRODUCT_REQUIREMENTS.md` | Product vision, UX requirements, feature alignment principles | `reference/tasky-product-requirements-template.md` (relative to this skill) |
+| `.ai/CODE_QUALITY_GUIDELINES.md` | Naming conventions, readability, maintainability, security standards | `reference/tasky-code-quality-guidelines-template.md` (relative to this skill) |
 
 ## Process
 
@@ -49,19 +49,19 @@ Task Progress:
 - Combine architectural findings into the workspace root file `.ai/CODE_REFERENCE.md` using the template below.
 
 **Step 4: Synthesis — Test Patterns**
-- Read `reference/test-patterns-template.md` (located inside this skill's directory) and fill it with project-specific testing conventions, writing the result to the workspace root file `.ai/TEST_PATTERNS.md`.
+- Read `reference/tasky-test-patterns-template.md` (located inside this skill's directory) and fill it with project-specific testing conventions, writing the result to the workspace root file `.ai/TEST_PATTERNS.md`.
 
 **Step 5: Synthesis — Project Patterns**
-- Read `reference/project-patterns-template.md` (located inside this skill's directory) and catalog every design pattern found in the project with concrete examples and file paths, writing the result to the workspace root file `.ai/PROJECT_PATTERNS.md`.
+- Read `reference/tasky-project-patterns-template.md` (located inside this skill's directory) and catalog every design pattern found in the project with concrete examples and file paths, writing the result to the workspace root file `.ai/PROJECT_PATTERNS.md`.
 
 **Step 6: Synthesis — Code Review Guidelines**
-- Read `reference/code-review-guidelines-template.md` (located inside this skill's directory) and tailor the review checklist to the project's specific patterns and conventions, writing the result to the workspace root file `.ai/CODE_REVIEW_GUIDELINES.md`.
+- Read `reference/tasky-code-review-guidelines-template.md` (located inside this skill's directory) and tailor the review checklist to the project's specific patterns and conventions, writing the result to the workspace root file `.ai/CODE_REVIEW_GUIDELINES.md`.
 
 **Step 7: Synthesis — Product Requirements**
-- Read `reference/product-requirements-template.md` (located inside this skill's directory) and capture the product vision, UX requirements, and feature alignment principles, writing the result to the workspace root file `.ai/PRODUCT_REQUIREMENTS.md`.
+- Read `reference/tasky-product-requirements-template.md` (located inside this skill's directory) and capture the product vision, UX requirements, and feature alignment principles, writing the result to the workspace root file `.ai/PRODUCT_REQUIREMENTS.md`.
 
 **Step 8: Synthesis — Code Quality Guidelines**
-- Read `reference/code-quality-guidelines-template.md` (located inside this skill's directory) and document the project's naming conventions, quality standards, and best practices, writing the result to the workspace root file `.ai/CODE_QUALITY_GUIDELINES.md`.
+- Read `reference/tasky-code-quality-guidelines-template.md` (located inside this skill's directory) and document the project's naming conventions, quality standards, and best practices, writing the result to the workspace root file `.ai/CODE_QUALITY_GUIDELINES.md`.
 
 **Step 9: Finalization**
 - Verify all six files are written to the workspace root `.ai/` directory with project-specific content (no unfilled placeholders).
